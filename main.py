@@ -84,7 +84,9 @@ def fetch_app_store_rating_info(app_id, country, cache):
     if script := soup.find("script",{"id":"shoebox-ember-data-store"}):
         data = json.loads(script.text)
         user_rating = data[str(app_id)]['data']['attributes']['userRating']
-        return {"rating": user_rating["value"], "stars": user_rating["ratingCountList"]}
+        return {"rating": user_rating["value"],
+                "stars": user_rating["ratingCountList"],
+                "reviews": sum(user_rating["ratingCountList"])}
 
 
 def main():
@@ -97,9 +99,9 @@ def main():
         for country in app["countries"]:
             if database.fetch_rating(date, APP_STORE, identifier, country) is None:
                 if rating_info := fetch_app_store_rating_info(app["id"], country, cache):
-                    rating = {"identifier": identifier, "id": app["id"], "country": country, "rating_info": rating_info}
-                    print(rating)
-                    database.insert_rating(Rating(date, APP_STORE, identifier, country, rating_info['rating']))
+                    print(rating_info)
+                    rating = Rating(date, APP_STORE, identifier, country, rating_info['rating'], rating_info['reviews'], rating_info['stars'])
+                    database.insert_rating(rating)
 
 
 if __name__ == "__main__":

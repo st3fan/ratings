@@ -19,7 +19,7 @@ def test_insert_rating():
     with TemporaryDirectory() as path:
         db = Database(path + "/ratings.sqlite3")
         today = date.today()
-        r1 = Rating(today, "com.example.Example", 'us', 4.8)
+        r1 = Rating(today, "AppStore", "com.example.Example", 'us', 4.8, 42, [1,2,3,4,5])
         db.insert_rating(r1)
-        r2 = db.fetch_rating(today, "com.example.Example", 'us',)
+        r2 = db.fetch_rating(today, "AppStore", "com.example.Example", 'us')
         assert r1 == r2
