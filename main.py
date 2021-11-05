@@ -23,15 +23,28 @@ PLAY_STORE_APPS = [
 APP_STORE_APPS = {
     "org.mozilla.ios.Focus": {
         "id": 1055677337,
-        "countries": ["us", "ca", "fr", "es", "jp"]
+        "countries": [
+            "us", "cn", "gb", "jp", "ca", "in", "fr", "br", "au", "it",
+            "ru", "mx", "sa", "se", "es", "nl", "pl", "tr", "hk", "sg",
+            "kr", "dk", "be", "no", "fi", "tw", "vn", "nz", "ph", "ua",
+            "th", "eg", "ro", "ma", "my", "hu", "pt", "ie", "cl", "za",
+            "il", "ae", "cz", "id", "gr", "co", "ar", "ng", "hr", "sk"
+        ] 
     },
     "org.mozilla.ios.Klar": {
         "id": 1073435754,
-        "countries": ["de"]
+        "countries": ["at", "ch", "de"]
     },
     "org.mozilla.ios.Firefox": {
         "id": 989804926,
-        "countries": ["us", "ca", "fr", "es", "de", "jp"]
+        "countries": [
+            "us", "cn", "gb", "jp", "ca", "in", "fr", "br", "au", "it",
+            "ru", "mx", "sa", "se", "es", "nl", "pl", "tr", "hk", "sg",
+            "kr", "dk", "be", "no", "fi", "tw", "vn", "nz", "ph", "ua",
+            "th", "eg", "ro", "ma", "my", "hu", "pt", "ie", "cl", "za",
+            "il", "ae", "cz", "id", "gr", "co", "ar", "ng", "hr", "sk",
+            "at", "ch", "de"
+        ]
     }
 }
 
